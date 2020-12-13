@@ -5,27 +5,39 @@
          version="4.0">
     <servlet>
         <servlet-name>AdminCategoryServlet</servlet-name>
-        <servlet-class>com.ljx.servlet.AdminCategoryServlet</servlet-class>
+        <servlet-class>com.gjc.servlet.AdminCategoryServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AdminProductServlet</servlet-name>
-        <servlet-class>com.ljx.servlet.AdminProductServlet</servlet-class>
+        <servlet-class>com.gjc.servlet.AdminProductServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ImageUploadServlet</servlet-name>
-        <servlet-class>com.ljx.servlet.ImageUploadServlet</servlet-class>
+        <servlet-class>com.gjc.servlet.ImageUploadServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ImageUpload</servlet-name>
-        <servlet-class>com.ljx.servlet.ImageUpload</servlet-class>
+        <servlet-class>com.gjc.servlet.ImageUpload</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>UserServlet</servlet-name>
-        <servlet-class>com.ljx.servlet.UserServlet</servlet-class>
+        <servlet-class>com.gjc.servlet.UserServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ProductServlet</servlet-name>
-        <servlet-class>com.ljx.servlet.ProductServlet</servlet-class>
+        <servlet-class>com.gjc.servlet.ProductServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PCAServlet</servlet-name>
+        <servlet-class>com.gjc.servlet.PCAServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddressServlet</servlet-name>
+        <servlet-class>com.gjc.servlet.AddressServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OrderServlet</servlet-name>
+        <servlet-class>com.gjc.servlet.OrderServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AdminCategoryServlet</servlet-name>
@@ -50,5 +62,21 @@
     <servlet-mapping>
         <servlet-name>ProductServlet</servlet-name>
         <url-pattern>/ProductServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProductServlet</servlet-name>
+        <url-pattern>/home/index.jsp</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PCAServlet</servlet-name>
+        <url-pattern>/PCAServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddressServlet</servlet-name>
+        <url-pattern>/AddressServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderServlet</servlet-name>
+        <url-pattern>/OrderServlet</url-pattern>
     </servlet-mapping>
 </web-app>

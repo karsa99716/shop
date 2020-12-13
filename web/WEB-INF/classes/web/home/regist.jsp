@@ -19,7 +19,33 @@
 	type="text/css">
 <script src="<c:url value='/AmazeUI-2.4.2/assets/js/jquery.min.js'/>"></script>
 <script src="<c:url value='/AmazeUI-2.4.2/assets/js/amazeui.min.js'/>"></script>
-
+<script>
+	$(function (){
+		$("#user").blur(function (){
+			/*
+			1.当用户焦点离开user的输入框
+			2.取出username，提交给服务器检查
+			3.占用，则显示占用，并把焦点重新定位到输入框中
+			4.没有占用，则显示成功信息
+			 */
+			$.post(
+			 	"${pageContext.request.contextPath}/UserServlet",
+					{
+						action:"validateUsername",
+						username:$(this).val()
+					},
+					function (data){
+			 		if (data=="true"){//可用
+			 			$("#msg").html("用户名可用");
+					}else {
+						$("#msg").html("用户名已存在");
+						$("#user").focus();
+					}
+					}
+			)
+		});
+	});
+</script>
 </head>
 
 <body>
@@ -79,7 +105,7 @@
 									class="am-btn am-btn-primary am-btn-sm am-fl">
 							</div>
 							<div class="login-links">
-								<label style="color: red">${error}</label>
+								<label style="color: red" id="msg">${error}</label>
 							</div>
 							<div class="login-links">
 								<label style="color:red"> </label>

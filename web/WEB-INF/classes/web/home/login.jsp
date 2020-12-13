@@ -69,7 +69,7 @@
 						${error}
 					</h3>
 					<h3>
-						<a href="regist.jsp">注册</a>
+						<a href="${pageContext.request.contextPath}/home/regist.jsp">注册</a>
 					</h3>
 
 				</div>

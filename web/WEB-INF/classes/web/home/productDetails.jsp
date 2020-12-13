@@ -149,7 +149,7 @@
                 </script>
 
                 <div class="tb-booth tb-pic tb-s310">
-                    <a href="<c:url value='../images/01.jpg'/>"><img src="<c:url value='${item.photo}' />" alt="细节展示放大镜特效" rel="<c:url value='../images/01.jpg'/>"
+                    <a href="<c:url value='../images/01.jpg'/>"><img src="<c:url value='${item.photo}' />" alt="细节展示放大镜特效" rel="<c:url value='${item.photo}' />'/>"
                                                     class="jqzoom"/></a>
                 </div>
 

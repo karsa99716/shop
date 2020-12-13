@@ -129,7 +129,7 @@
 										<li class="am-disabled"><a href="#">&laquo;</a></li>
 									</c:when>
 									<c:otherwise>
-										<li><a href="<c:url value='/ProductServlet?action=findAll&current=${page.currentPage-1}&sortkey=${sortkey}&sort=${sort}&svalue=${svalue}' />">&laquo;</a></li>
+										<li><a href="<c:url value='/ProductServlet?action=findAll&current=${page.currentPage-1}&sortkey=${sortkey}&sort=${sort}&svalue=${svalue}' />">&raquo;</a></li>
 									</c:otherwise>
 								</c:choose>
 								<c:forEach begin="${page.start}" end="${page.end}" var="i">

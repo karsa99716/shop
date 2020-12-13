@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: newbe
-  Date: 2020/11/15
-  Time: 14:06
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -45,7 +38,7 @@
             <div class="vocation">
                 ${item.cname}
             </div></li>
-        <li><label>商品封面</label> <img src="${item.proto}" /></li>
+        <li><label>商品封面</label> <img src="/shop/${item.photo}" /></li>
         <li><label>商品价格</label> <label>￥${item.price}</label>
         </li>
         <li><label>商品市场价格</label> <label>￥${item.markprice}</label>
@@ -62,6 +55,9 @@
             <li><label><input type="submit" value="修改" class="btn"/></label></li>
         </form>
     </ul>
+    <a
+            href="<c:url value='/AdminProductServlet?action=updatebefore&id=${item.productid}' />"
+            class="tablelink"> 修改</a>
 </div>
 </body>
 </html>

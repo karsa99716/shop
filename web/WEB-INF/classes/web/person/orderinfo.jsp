@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html>
@@ -162,16 +163,12 @@
 									<div class="icon-add">
 									</div>
 									<p class="new-tit new-p-re">
-										<span class="new-txt">小叮当</span>
-										<span class="new-txt-rd2">159****1622</span>
+										<span class="new-txt">${order.address.receiver}</span>
+										<span class="new-txt-rd2">${order.address.phone}</span>
 									</p>
 									<div class="new-mu_l2a new-p-re">
 										<p class="new-mu_l2cw">
-											<span class="title">收货地址：</span>
-											<span class="province">湖北</span>省
-											<span class="city">武汉</span>市
-											<span class="dist">洪山</span>区
-											<span class="street">雄楚大道666号(中南财经政法大学)</span></p>
+											<span class="street">${order.address.addressname}</span></p>
 									</div>
 								</div>
 							</div>
@@ -206,37 +203,35 @@
 
 								<div class="order-status3">
 									<div class="order-title">
-										<div class="dd-num">订单编号：<a href="javascript:;">1601430</a></div>
-										<span>成交时间：2015-12-20</span>
-										<!--    <em>店铺：小桔灯</em>-->
+										<div class="dd-num">订单编号：<a href="javascript:;">${order.orderid}</a></div>
+										<span>成交时间：<fmt:formatDate type="time" value="${order.ordertime }" pattern="yyyy-MM-dd hh:mm:ss" /></span>
 									</div>
 									<div class="order-content">
 										<div class="order-left">
+											<c:forEach var="item" items="${order.orderItemList}">
 											<ul class="item-list">
 												<li class="td td-item">
 													<div class="item-pic">
-														<a href="#" class="J_MakePoint">
-															<img src="../images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg">
+														<a href="<c:url value='/ProductServlet?action=findById&id=${item.product.productid}' />" class="J_MakePoint">
+															<img src="<c:url value='/${item.product.photo}' />" class="itempic J_ItemImg" style="width: 100%">
 														</a>
 													</div>
 													<div class="item-info">
 														<div class="item-basic-info">
-															<a href="#">
-																<p>美康粉黛醉美唇膏 持久保湿滋润防水不掉色</p>
-																<p class="info-little">颜色：12#川南玛瑙
-																	<br/>包装：裸装 </p>
+															<a href="<c:url value='/ProductServlet?action=findById&id=${item.product.productid}' />">
+																<p>${item.product.name}</p>
 															</a>
 														</div>
 													</div>
 												</li>
 												<li class="td td-price">
 													<div class="item-price">
-														333.00
+														${item.total}
 													</div>
 												</li>
 												<li class="td td-number">
 													<div class="item-number">
-														<span>×</span>2
+														<span>×</span>${item.buycount}
 													</div>
 												</li>
 												<li class="td td-operation">
@@ -245,47 +240,13 @@
 													</div>
 												</li>
 											</ul>
-
-											<ul class="item-list">
-												<li class="td td-item">
-													<div class="item-pic">
-														<a href="#" class="J_MakePoint">
-															<img src="../images/62988.jpg_80x80.jpg" class="itempic J_ItemImg">
-														</a>
-													</div>
-													<div class="item-info">
-														<div class="item-basic-info">
-															<a href="#">
-																<p>礼盒袜子女秋冬 纯棉袜加厚 韩国可爱 </p>
-																<p class="info-little">颜色分类：李清照
-																	<br/>尺码：均码</p>
-															</a>
-														</div>
-													</div>
-												</li>
-												<li class="td td-price">
-													<div class="item-price">
-														333.00
-													</div>
-												</li>
-												<li class="td td-number">
-													<div class="item-number">
-														<span>×</span>2
-													</div>
-												</li>
-												<li class="td td-operation">
-													<div class="item-operation">
-														退款/退货
-													</div>
-												</li>
-											</ul>
+											</c:forEach>
 
 										</div>
 										<div class="order-right">
 											<li class="td td-amount">
 												<div class="item-amount">
-													合计：676.00
-													<p>含运费：<span>10.00</span></p>
+													合计：${order.totalprice}
 												</div>
 											</li>
 											<div class="move-right">

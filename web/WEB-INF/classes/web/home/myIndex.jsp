@@ -30,8 +30,16 @@
 				<ul class="message-l">
 					<div class="topMessage">
 						<div class="menu-hd">
-							<a href="<c:url value='/home/login.jsp'/>" target="_top" class="h">亲，请登录</a>
-							<a href="<c:url value='/home/regist.jsp'/>" target="_top">免费注册</a>
+							<c:choose>
+								<c:when test="${user==null}">
+									<a href="<c:url value='/home/login.jsp'/>" target="_top" class="h">亲，请登录</a>
+									<a href="<c:url value='/home/regist.jsp'/>" target="_top">免费注册</a>
+								</c:when>
+								<c:otherwise>
+									${user.username}，欢迎回来
+								</c:otherwise>
+							</c:choose>
+
 						</div>
 					</div>
 				</ul>
@@ -46,7 +54,11 @@
 						<div class="menu-hd"><a id="mc-menu-hd" href="#" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>
 					</div>
 					<div class="topMessage favorite">
-						<div class="menu-hd"><a href="#" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a></div>
+						<div class="menu-hd">
+							<c:if test="${user!=null}">
+								<a href="<c:url value='/UserServlet?action=exit' />" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>退出登录</span></a>
+							</c:if>
+						</div>
 					</div>
 				</ul>
 			</div>
@@ -85,7 +97,7 @@
 							<ul>
 								<li class="index"><a href="#">首页</a></li>
                                 <li class="qc"><a href="#">购物车</a></li>
-                                <li class="qc"><a href="#">我的订单</a></li>
+                                <li class="qc"><a href="<c:url value='/OrderServlet?action=findAll' />">我的订单</a></li>
                                 <li class="qc last"><a href="#">个人中心</a></li>
 							</ul>
 						    
@@ -109,7 +121,7 @@
 							<h3>每一道甜品都有一个故事</h3>
 							
 							<span class="more ">
-                    <a class="more-link " href="<c:url value='/ProductServlet?action=findAll' />">更多美味</a>
+                    <a class="more-link " href="<c:url value='/ProductServlet?action=findAll' />">更多商品</a>
                         </span>
 						</div>
 					</div>
@@ -120,10 +132,11 @@
 							<c:forEach var="item" items="${list}">
 								<li>
 									<div class="list ">
-											<img src="<c:url value='/${item.photo}' />" />
-											<div class="pro-title ">${item.name}</div>
-											<span class="e-price ">${item.price}</span>
-										</a>
+											<a href="<c:url value='/ProductServlet?action=findById&id=${item.productid}' />">
+												<img src="<c:url value='/${item.photo}' />" />
+												<div class="pro-title ">${item.name}</div>
+												<span class="e-price ">${item.price}</span>
+											</a>
 									</div>
 								</li>
 							</c:forEach>

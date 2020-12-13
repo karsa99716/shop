@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: newbe
-  Date: 2020/11/8
-  Time: 15:02
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -107,25 +100,25 @@
             </li>
 
             <li><label>商品价格<b>*</b>
-            </label> <input name="price" type="text" class="dfinput" value="请填写商品价格"
+            </label> <input name="price" type="text" class="dfinput" placeholder="请填写商品价格"
                             style="width:278px;"/>
             </li>
 
             <li><label>商品市场价格<b>*</b>
-            </label> <input name="markprice" type="text" class="dfinput" value="请填写商品市场价格"
+            </label> <input name="markprice" type="text" class="dfinput" placeholder="请填写商品市场价格"
                             style="width:278px;"/>
             </li>
 
             <li><label>商品数量<b>*</b>
-            </label> <input name="quality" type="text" class="dfinput" value="请填写商品数量"
+            </label> <input name="quality" type="text" class="dfinput" placeholder="请填写商品数量"
                             style="width:278px;"/>
             </li>
 
             <li><label>浏览量<b>*</b> </label> <input name="hit" type="text"
-                                                   class="dfinput" value="请填写浏览量" style="width:278px;"/></li>
+                                                   class="dfinput" placeholder="请填写浏览量" style="width:278px;"/></li>
 
             <li><label>发布时间<b>*</b> </label> <input name="time" type="text"
-                                                    class="dfinput" value="请选择时间" style="width:278px;"
+                                                    class="dfinput" placeholder="请选择时间" style="width:278px;"
                                                     onclick="J.calendar.get();"/></li>
 
             <li><label>商品描述内容<b>*</b>
